@@ -1,0 +1,32 @@
+swagger: "2.0"
+info:
+  description: "This API can be used to query our network maintenance status. Please don't spam requests."
+  version: "1.0.0"
+  title: "Asorda Maintenance"
+  termsOfService: "https://everbuild.org/terms"
+  contact:
+    email: "hi@everbuild.org"
+  license:
+    name: "MIT"
+    url: "https://github.com/everbuild-org/asorda-net-docs/LICENSE"
+host: "maintenance.asorda.net"
+basePath: "/"
+schemes:
+- "https"
+paths:
+  /maintenance:
+    get:
+      description: Query the current status
+      responses:
+        200:
+          description: Lookup worked!
+          schema:
+            type: object
+            properties:
+              isMaintenanceMode:
+                type: boolean
+                example: true
+              expectedEndTime:
+                type: string
+                format: nullable
+                example: "2025-02-15T19:06:00Z"
